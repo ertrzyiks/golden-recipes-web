@@ -1,8 +1,9 @@
 module.exports = {
+  pathPrefix: `/golden-recipes-web`,
   siteMetadata: {
     title: 'Golden Recipes Web',
     description: '',
-    siteUrl: '',
+    siteUrl: 'https://ertrzyiks.github.io/golden-recipes-web/',
     author: ''
   },
   plugins: [

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "deploy": "bash -x scripts/deploy.sh"
   },
   "author": "",
