@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'gatsby'
+import {graphql, Link} from 'gatsby'
 
 export default function ({data}) {
   const Posts = data.allGoldenRecipe.edges
