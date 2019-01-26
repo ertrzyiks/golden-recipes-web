@@ -1,0 +1,1 @@
+{"errors":[{"message":"Cannot return null for non-nullable field Recipe.id.","locations":[{"line":7,"column":7}],"path":["remote","allRecipes",0,"id"]}],"data":{"remote":{"allRecipes":[null]}},"pageContext":{"limit":10,"skip":0,"totalPages":1,"currentPage":1}}
