@@ -2,9 +2,9 @@ import React from 'react'
 import {graphql, Link} from 'gatsby'
 
 export default function ({data}) {
-  const Posts = data.allGoldenRecipe.edges
-    .map(({node: recipe}) => {
-      return <li key={recipe.id}>
+  const Posts = data.remote.allRecipes
+    .map(recipe => {
+      return <li key={recipe.slug}>
         <Link to={recipe.slug}>{recipe.name}</Link>
       </li>
     })
@@ -14,17 +14,13 @@ export default function ({data}) {
 
 export const pageQuery = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
-    allGoldenRecipe (
-      sort: { order: DESC, fields: [name] }
-      limit: $limit
-      skip: $skip
-    ) {
-      edges {
-        node {
-          id 
-          slug
-          name
-        }
+    remote {
+      allRecipes (
+        limit: $limit
+        skip: $skip
+      ) {
+        slug
+        name
       }
     }
   }

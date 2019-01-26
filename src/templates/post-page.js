@@ -2,7 +2,7 @@ import React from 'react'
 import {graphql} from 'gatsby'
 
 export default function ({data}) {
-  const recipe = data.goldenRecipe
+  const recipe = data.remote.recipe
 
   const Ingredients = recipe.ingredients.map(ingredient => {
     return <li>{ingredient}</li>
@@ -26,11 +26,13 @@ export default function ({data}) {
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    goldenRecipe(slug: { eq: $slug }) {
-      name
-      slug
-      ingredients
-      directions
+    remote {
+      recipe(slug: $slug) {
+        name
+        slug
+        ingredients
+        directions
+      }
     }
   }
 `

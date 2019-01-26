@@ -8,10 +8,12 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-graphql",
       options: {
-        path: `${__dirname}/recipes`,
-        name: 'recipes',
+        typeName: "Remote",
+        fieldName: "remote",
+        url: "http://localhost:4000",
+        // url: "http://golden-recipes-api.ertrzyiks.me",
       },
     },
   ],

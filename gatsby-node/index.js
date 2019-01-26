@@ -5,15 +5,10 @@ function createIndexPage({ actions, graphql }) {
 
   return graphql(`
     { 
-      allGoldenRecipe(
-       sort: { order: ASC, fields: [name] }
-      ) {
-        edges {
-          node {
-            id
-            name
-            slug
-          }
+      remote {
+        allRecipes {
+          name
+          slug
         }
       }
     }
@@ -22,7 +17,7 @@ function createIndexPage({ actions, graphql }) {
       return Promise.reject(result.errors)
     }
 
-    const posts = result.data.allGoldenRecipe.edges
+    const posts = result.data.remote.allRecipes
     const postsPerPage = 10
     const totalPages = Math.ceil(posts.length / postsPerPage)
 

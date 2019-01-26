@@ -6,13 +6,10 @@ function createPostPages({ actions, graphql }) {
 
   return graphql(`
     { 
-      allGoldenRecipe {
-        edges {
-          node {
-            id
-            name
-            slug
-          }
+      remote {
+        allRecipes {
+          name
+          slug
         }
       }
     }
@@ -21,9 +18,9 @@ function createPostPages({ actions, graphql }) {
       return Promise.reject(result.errors)
     }
 
-    const posts = result.data.allGoldenRecipe.edges
+    const posts = result.data.remote.allRecipes
 
-    posts.forEach(({ node }) => {
+    posts.forEach(node => {
       createPage({
         path: node.slug,
         component: blogPostTemplate,
