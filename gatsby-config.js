@@ -12,8 +12,7 @@ module.exports = {
       options: {
         typeName: "Remote",
         fieldName: "remote",
-        url: "http://localhost:4000",
-        // url: "http://golden-recipes-api.ertrzyiks.me",
+        url: "http://golden-recipes-api.ertrzyiks.me",
       },
     },
   ],
